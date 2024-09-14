@@ -26,5 +26,5 @@ o.splitright = true
 o.splitbelow = true -- When on, splitting a window will put the new window below the current one
 o.termguicolors = true
 
-o.listchars = "nbsp:☠,tab:▸␣,space:·"
-o.list = true
+o.listchars = "nbsp:☠,tab:▸␣,space:·" -- Set blank characters to be shown
+o.list = true -- Show blank characters such as tab, space, non-breaking space
