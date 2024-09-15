@@ -136,7 +136,17 @@ export PATH=/Applications/Understand.app/Contents/MacOS:$PATH
 
 [ -f "/Users/cuong/.ghcup/env" ] && source "/Users/cuong/.ghcup/env" # ghcup-env
 
-alias push="git add .; git commit -m "update"; git push"
+function git_push() {
+  if [ -n "$1" ]; then
+    git add .
+    git commit -m "$1"
+    git push
+  else
+    echo "Commit messsage required!"
+  fi
+}
+
+alias push="git_push"
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 export PATH=/Users/cuong/Research/codeql:$PATH
