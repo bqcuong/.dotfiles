@@ -70,7 +70,7 @@ end
 
 require('jdtls').start_or_attach(config)
 
-function attach_to_debug()
+function Attach_to_debug()
   local dap = require('dap')
   dap.configurations.java = {
     {
@@ -84,6 +84,11 @@ function attach_to_debug()
   dap.continue()
 end
 
+function Show_dap_ui()
+  local widgets = require'dap.ui.widgets'
+  widgets.centered_float(widgets.scopes)
+end
+
 -- jdtls refactor code
 vim.keymap.set('n', '<leader>co', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
 vim.keymap.set('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
@@ -93,7 +98,8 @@ vim.keymap.set('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_const
 vim.keymap.set('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
 
 -- setup debug
-vim.keymap.set('n', '<leader>da', ':lua attach_to_debug()<CR>')
+vim.keymap.set('n', '<leader>da', ':lua Attach_to_debug()<CR>')
+vim.keymap.set('n', 'gs', ':lua Show_dap_ui()<CR>')
 
 vim.keymap.set('n', '<leader>b', ':lua require"dap".toggle_breakpoint()<CR>')
 vim.keymap.set('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Condition: "))<CR>')
