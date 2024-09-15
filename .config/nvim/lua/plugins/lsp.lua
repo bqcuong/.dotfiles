@@ -48,7 +48,6 @@ return {
         "lua_ls",
         "jsonls",
         "html",
-        "tailwindcss",
         "pylsp",
         "dockerls",
         "bashls",
