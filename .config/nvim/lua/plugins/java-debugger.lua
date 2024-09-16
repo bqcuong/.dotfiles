@@ -5,9 +5,32 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio"
     },
-    config = function()
-      require('dapui').setup()
-    end
+    opts = {
+      layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.50
+          }, {
+            id = "watches",
+            size = 0.25
+          }, {
+            id = "breakpoint",
+            size = 0.25
+          } },
+        position = "right",
+        size = 40
+      }, {
+        elements = { {
+            id = "repl",
+            size = 0.5
+          }, {
+            id = "console",
+            size = 0.5
+          } },
+        position = "bottom",
+        size = 10
+      } },
+    },
   },
   {
     "mfussenegger/nvim-dap",
@@ -34,19 +57,15 @@ return {
 
       local dapui = require("dapui")
       dap.listeners.before.attach.dapui_config = function()
-        vim.cmd.Neotree('close')
         dapui.open()
       end
       dap.listeners.before.launch.dapui_config = function()
-        vim.cmd.Neotree('close')
         dapui.open()
       end
       dap.listeners.before.event_terminated.dapui_config = function()
-        vim.cmd.Neotree('show')
         dapui.close()
       end
       dap.listeners.before.event_exited.dapui_config = function()
-        vim.cmd.Neotree('show')
         dapui.close()
       end
 
