@@ -1,6 +1,10 @@
 local global = vim.g
 local o = vim.opt
 
+-- Key mappings
+global.mapleader = " "
+global.maplocalleader = "\\"
+
 -- Editor options
 
 o.number = true -- Print the line number in front of each line
