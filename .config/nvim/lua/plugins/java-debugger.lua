@@ -18,31 +18,35 @@ return {
       local dap = require('dap')
       dap.configurations.java = {
         {
+          name = "Debug Current Class",
+          type = "java",
+          request = "launch",
+          program = "${file}",
+        },
+        {
           name = "Debug (Attach) - Remote",
           type = "java",
           request = "attach",
           hostName = "127.0.0.1",
           port = 5005,
         },
-        {
-          name = "Debug Current Class",
-          type = "java",
-          request = "launch",
-          program = "${file}",
-        },
-      }
+     }
 
       local dapui = require("dapui")
       dap.listeners.before.attach.dapui_config = function()
+        vim.cmd.Neotree('close')
         dapui.open()
       end
       dap.listeners.before.launch.dapui_config = function()
+        vim.cmd.Neotree('close')
         dapui.open()
       end
       dap.listeners.before.event_terminated.dapui_config = function()
+        vim.cmd.Neotree('show')
         dapui.close()
       end
       dap.listeners.before.event_exited.dapui_config = function()
+        vim.cmd.Neotree('show')
         dapui.close()
       end
 
