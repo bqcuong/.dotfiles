@@ -55,12 +55,15 @@ return {
       )
 
       vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = "Add Breakpoint" })
+      vim.keymap.set('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', { desc = "Add Breakpoint with Condition" })
+      vim.keymap.set('n', '<leader>lp', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Logpoint message: "))<CR>', { desc = "Add Logpoint" })
 
       -- move in debug
       vim.keymap.set('n', '<F5>', ':lua require"dap".continue()<CR>', { desc = "Continue" })
       vim.keymap.set('n', '<F8>', ':lua require"dap".step_over()<CR>', { desc = "Step Over" })
       vim.keymap.set('n', '<F7>', ':lua require"dap".step_into()<CR>', { desc = "Step Into" })
       vim.keymap.set('n', '<S-F8>', ':lua require"dap".step_out()<CR>', { desc = "Step Out" })
+      vim.keymap.set('n', '<F2>', ':lua require"dap".terminate()<CR>', { desc = "Terminate" })
     end,
   },
   {
