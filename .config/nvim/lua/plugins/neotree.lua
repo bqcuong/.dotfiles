@@ -22,6 +22,14 @@ return {
       end
     })
   end,
+  config = function()
+      vim.keymap.set('n', '<leader>e',
+        function()
+          vim.cmd.Neotree('toggle')
+        end,
+        { desc = "Toggle Neotree" }
+      )
+  end,
 --  opts = {
 --    filesystem = {
 --      hijack_netrw_behavior = 'open_current'
