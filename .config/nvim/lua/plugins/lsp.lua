@@ -100,35 +100,25 @@ return {
       mapping = cmp.mapping.preset.insert({
         -- Tab for completion
         ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              local entry = cmp.get_selected_entry()
-              if not entry then
-                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                cmp.confirm()
-              else
-                cmp.confirm()
-              end
+          if cmp.visible() then
+            local entry = cmp.get_selected_entry()
+            if not entry then
+              cmp.select_next_item()
+              cmp.confirm()
             else
-              fallback()
+              cmp.confirm()
             end
-        end, { "i", "s", "c", }),
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
 
         -- confirm completion item
-        ['<Enter>'] = cmp.mapping.confirm({ select = true }),
-
-        -- trigger completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
 
         -- scroll up and down the documentation window
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
-
-        -- navigate between snippet placeholders
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
       }),
     })
   end,
