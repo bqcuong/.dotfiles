@@ -8,4 +8,4 @@ This repository contains my configurations for the tools listed below:
 * iTerm
 
 # Neovim usage
-* Navigation: `CTRL + W + ←↕→`
+* Navigation between Windows: `CTRL + W + ←↕→`
