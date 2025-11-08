@@ -1,0 +1,25 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH=$PATH:/usr/local/go/bin
+
+## disbale touchpad's middle button
+#xinput set-button-map 11 1 0 3 4 5 6 7
+
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+
+## set secondary monitor (3440x1440) ontop the built-in one
+alias monitor="xrandr | grep "HDMI-A-0" && xrandr --output HDMI-A-0 --mode 3440x1440 --pos 0x0 --output eDP --primary --mode 1920x1200 --pos 0x1440"
+
+alias dockerup="docker compose -f docker-compose.yml -f docker-compose.persist.yml up -d"
+alias dockerdown="docker compose down -v; docker volume rm kuberpult_pgdata"
