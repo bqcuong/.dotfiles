@@ -184,3 +184,7 @@ set $refresh_volume_block pkill -SIGRTMIN+1 i3blocks
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5%+ unmute && $refresh_volume_block"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5%- unmute && $refresh_volume_block"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle && $refresh_volume_block"
+
+## Screen Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
