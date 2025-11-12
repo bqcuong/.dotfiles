@@ -90,7 +90,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
-set $ws2 "2: "
+set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4"
 set $ws5 "5"
@@ -102,7 +102,7 @@ set $ws10 "10"
 
 # Start workspaces with default apps
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace $ws2; exec google-chrome'
+exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
 
 # switch to workspace
@@ -170,23 +170,9 @@ set $text-color #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color #E53935
 
-##Window colors  
-client.focused  $bg-color $bg-color $text-color #ff0000
-client.unfocused  $inactive-bg-color $inactive-bg-color $inactive-text-color #ff0000
-client.focused_inactive  $inactive-bg-color $inactive-bg-color $inactive-text-color #ff0000
-client.urgent  $urgent-bg-color $urgent-bg-color $text-color #ff0000
-
 # Use i3blocks for i3bar
 bar {
         status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
-	colors {
-        	background $bg-color
-        	separator #757575
-    
-        	focused_workspace $bg-color $bg-color $text-color
-        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        	urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
-    }
 }
 
 ## Screenshots
