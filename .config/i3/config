@@ -35,7 +35,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec rofi -modi drun -show drun
+bindsym $mod+d exec "rofi -modes combi -combi-modes \\"drun,run\\" -show combi"
 
 # change focus
 bindsym $mod+j focus left
@@ -100,10 +100,18 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# Start workspaces with default apps
-exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
+# start workspaces with default apps, on different monitors
+workspace $ws1 output eDP
+workspace $ws2 output HDMI-A-0
+workspace $ws3 output HDMI-A-0
+
+# execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
 exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
+exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
+exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
+
+# workspace assignment should be done manually for goland, as it spwans new process for the main app
+assign [class="jetbrains-goland"] $ws3
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1

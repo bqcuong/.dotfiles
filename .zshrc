@@ -23,3 +23,6 @@ alias monitor="xrandr | grep "HDMI-A-0" && xrandr --output HDMI-A-0 --mode 3440x
 
 alias dockerup="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml up -d"
 alias dockerdown="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml down -v; docker volume rm kuberpult_pgdata"
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
