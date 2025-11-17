@@ -23,6 +23,11 @@ return {
     })
   end,
   config = function()
+      require('neo-tree').setup({
+        filesystem = {
+          hijack_netrw_behavior = 'disabled'
+        }
+      })
       vim.keymap.set('n', '<leader>e',
         function()
           vim.cmd.Neotree('toggle')
@@ -30,9 +35,4 @@ return {
         { desc = "Toggle Neotree" }
       )
   end,
---  opts = {
---    filesystem = {
---      hijack_netrw_behavior = 'open_current'
---    }
---  },
 }
