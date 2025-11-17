@@ -14,7 +14,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 
 ## disbale touchpad's middle button
-#xinput set-button-map 11 1 0 3 4 5 6 7
+xinput set-button-map 11 1 0 3 4 5 6 7
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
@@ -22,7 +22,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias monitor="xrandr | grep "HDMI-A-0" && xrandr --output HDMI-A-0 --mode 3440x1440 --pos 0x0 --output eDP --primary --mode 1920x1200 --pos 0x1440"
 
 alias dockerup="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml up -d"
-alias dockerdown="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml down -v; docker volume rm kuberpult_pgdata"
+alias dockerdown="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml down -v"
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"

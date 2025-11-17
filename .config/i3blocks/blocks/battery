@@ -1,7 +1,19 @@
 #!/bin/bash
 
 BATTERY=0
-BATTERY_INFO=$(acpi -b | grep "Battery ${BATTERY}")
+
+while true; do
+  BATTERY_INFO=$(acpi -b | grep "Battery ${BATTERY}")
+  if [[ ! -n $(echo "${BATTERY_INFO}" | grep "unavailable") ]]; then
+    break
+  fi
+
+  if [[ "${BATTERY}" = 5 ]]; then
+    echo "Not available"
+  fi
+  BATTERY=$((BATTERY+1))
+done
+
 BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
 BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
 
