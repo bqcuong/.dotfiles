@@ -20,7 +20,8 @@ alias vi=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 ## set secondary monitor (3440x1440) ontop the built-in one
-alias monitor="xrandr | grep 'HDMI-A-0 connected' && xrandr --output eDP --primary --mode 1920x1200 --pos 0x0 --output HDMI-A-0 --mode 3440x1440 --pos 0x-1440 || xrandr --output eDP --primary --mode 1920x1200 --pos 0x0"
+alias hdmi="xrandr | grep 'HDMI-A-0 connected' && xrandr --output eDP --primary --mode 1920x1200 --pos 0x0 --output HDMI-A-0 --mode 3440x1440 --pos 0x-1440 || xrandr --output eDP --primary --mode 1920x1200 --pos 0x0"
+alias dp="xrandr | grep 'DisplayPort-0 connected' && xrandr --output eDP --primary --mode 1920x1200 --pos 0x0 --output DisplayPort-0 --mode 3440x1440 --pos 0x-1440 || xrandr --output eDP --primary --mode 1920x1200 --pos 0x0"
 
 alias dockerup="DD_ENV=bqc-test docker compose -f docker-compose.yml -f docker-compose.persist.yml up -d"
 alias dockerupdog="DD_ENV=bqc-test docker compose -f docker-compose.datadog.yml -f docker-compose.yml -f docker-compose.persist.yml up -d"
