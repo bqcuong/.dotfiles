@@ -18,4 +18,4 @@ alias vi=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 
 ## personal configs
-source .zsh_private
+source ~/.zsh_private
