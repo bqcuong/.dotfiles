@@ -80,7 +80,7 @@ set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
-set $ws5 "5"
+set $ws5 "5: "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -88,11 +88,15 @@ set $ws9 "9"
 set $ws10 "10: "
 
 # start workspaces with default apps, on different monitors
+#set $external_monitor "DisplayPort-0"
+set $external_monitor "HDMI-A-0"
+
 workspace $ws1 output eDP
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output HDMI-A-0
-workspace $ws4 output HDMI-A-0
-workspace $ws10 output HDMI-A-0
+workspace $ws2 output $external_monitor
+workspace $ws3 output $external_monitor
+workspace $ws4 output $external_monitor
+workspace $ws5 output $external_monitor
+workspace $ws10 output $external_monitor
 
 # execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
 #exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
