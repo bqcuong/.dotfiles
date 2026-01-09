@@ -1,8 +1,8 @@
 set $mod Mod4
 
-font pango:Ubuntu Regular 11
+#font pango:Ubuntu Regular 11
 #font pango:DejaVu Sans Mono 11
-#font pango: M+ 1m, FontAwesome, Ionicons, 11
+font pango: M+ 1m, FontAwesome, Ionicons, 11
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -102,10 +102,12 @@ workspace $ws10 output $external_monitor
 #exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace $ws10; exec /opt/pulsesecure/bin/pulseUI'
 
 # workspace assignment should be done manually for goland, as it spwans new process for the main app
 assign [class="jetbrains-goland"] $ws3
 assign [class="Google-chrome"] $ws4
+assign [class="DBeaver"] $ws5
 assign [class="PulseUI"] $ws10
 
 # switch to workspace
