@@ -84,7 +84,7 @@ set $ws5 "5: "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: "
 set $ws10 "10: "
 
 # start workspaces with default apps, on different monitors
@@ -102,7 +102,7 @@ workspace $ws10 output $external_monitor
 #exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace $ws10; exec /opt/pulsesecure/bin/pulseUI'
+#exec --no-startup-id i3-msg 'workspace $ws10; exec /opt/pulsesecure/bin/pulseUI'
 
 # workspace assignment should be done manually for goland, as it spwans new process for the main app
 assign [class="jetbrains-goland"] $ws3
