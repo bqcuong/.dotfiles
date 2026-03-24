@@ -80,36 +80,33 @@ bindsym $mod+a focus parent
 set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
+set $ws4 "4: "
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws9 "9"
+set $ws10 "10: "
 
 # start workspaces with default apps, on different monitors
-#set $external_monitor "DisplayPort-0"
+set $internal_monitor "eDP"
+
+# set $external_monitor "DisplayPort-0"
 set $external_monitor "HDMI-A-0"
 
-workspace $ws1 output eDP
+workspace $ws1 output $internal_monitor
 workspace $ws2 output $external_monitor
 workspace $ws3 output $external_monitor
 workspace $ws4 output $external_monitor
-workspace $ws5 output $external_monitor
-workspace $ws10 output $external_monitor
+workspace $ws10 output $internal_monitor
 
 # execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
 #exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
-#exec --no-startup-id i3-msg 'workspace $ws10; exec /opt/pulsesecure/bin/pulseUI'
 
 # workspace assignment should be done manually for goland, as it spwans new process for the main app
 assign [class="jetbrains-goland"] $ws3
-assign [class="Google-chrome"] $ws4
-assign [class="DBeaver"] $ws5
-assign [class="PulseUI"] $ws10
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -141,6 +138,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# i3-gaps
+gaps inner 8
+gaps outer -8
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -179,7 +180,7 @@ bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewi
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 ## Wallpaper
-exec_always feh --bg-scale /home/david.bui/Pictures/Wallpapers/hamburg-christian-lue.jpg
+exec_always feh --bg-scale "/home/$USER/Pictures/Wallpapers/bg.jpg"
 
 ## Volume
 set $refresh_volume_block pkill -SIGRTMIN+1 i3blocks
