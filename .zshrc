@@ -22,6 +22,7 @@ alias dp="xrandr | grep 'DisplayPort-0 connected' && xrandr --output eDP --prima
 ## aliases
 alias vi=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias cdroot='cd $(git rev-parse --show-toplevel)'
 
 ## personal configs
 source ~/.zsh_private

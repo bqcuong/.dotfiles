@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = { "java", "go" },
+    ensure_installed = { "java", "go", "terraform", "hcl" },
   },
 }

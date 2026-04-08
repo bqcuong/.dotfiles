@@ -101,7 +101,7 @@ workspace $ws4 output $external_monitor
 workspace $ws10 output $internal_monitor
 
 # execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
-#exec --no-startup-id i3-msg 'workspace $ws3; exec goland'
+exec --no-startup-id i3-msg 'workspace $ws3; exec antigravity'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
 
