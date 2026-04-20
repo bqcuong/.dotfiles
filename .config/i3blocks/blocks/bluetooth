@@ -1,0 +1,35 @@
+#!/bin/bash
+
+mac_addresses=$(bluetoothctl devices Connected | cut -d ' ' -f 2)
+if [ -z "$mac_addresses" ]; then
+    echo ""
+    echo ""
+    echo "#a0a0a0"
+    exit 0
+fi
+
+output_icons=""
+for mac in $mac_addresses; do
+    icon_type=$(bluetoothctl info "$mac" | grep "Icon:" | awk '{print $2}')
+    case "$icon_type" in
+        audio-card|audio-headset|audio-headphones)
+            output_icons="$output_icons 🎧"
+            ;;
+        input-mouse)
+            output_icons="$output_icons 🖱️"
+            ;;
+        input-keyboard)
+            output_icons="$output_icons "
+            ;;
+        phone|smartphone)
+            output_icons="$output_icons "
+            ;;
+        *)
+            output_icons="$output_icons "
+            ;;
+    esac
+done
+
+echo "$output_icons"
+echo "$output_icons"
+echo "#81a1c1"
