@@ -24,6 +24,8 @@ alias dp2560="xrandr | grep 'DisplayPort-0 connected' && xrandr --output eDP --p
 alias vi=nvim
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias cdroot='cd $(git rev-parse --show-toplevel)'
+alias cdf='p=$(find . | fzf) && [ -n "$p" ] && cd "$([ -d "$p" ] && echo "$p" || dirname "$p")"'
+alias vif='vi $(find . -type f | fzf)'
 
 ## personal configs
 source ~/.zsh_private

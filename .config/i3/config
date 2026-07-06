@@ -91,8 +91,8 @@ set $ws10 "10: "
 # start workspaces with default apps, on different monitors
 set $internal_monitor "eDP"
 
-set $external_monitor "DisplayPort-0"
-#set $external_monitor "HDMI-A-0"
+#set $external_monitor "DisplayPort-0"
+set $external_monitor "HDMI-A-0"
 
 workspace $ws1 output $internal_monitor
 workspace $ws2 output $external_monitor
@@ -101,7 +101,7 @@ workspace $ws4 output $external_monitor
 workspace $ws10 output $internal_monitor
 
 # execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
-#exec --no-startup-id i3-msg 'workspace $ws3; exec antigravity'
+exec --no-startup-id i3-msg 'workspace $ws3; exec antigravity'
 exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
 
