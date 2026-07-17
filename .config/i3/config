@@ -78,7 +78,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 # Search for icons from https://fontawesome.com/icons
 set $ws1 "1: "
-set $ws2 "2: "
+set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
 set $ws5 "5: "
@@ -101,8 +101,8 @@ workspace $ws4 output $external_monitor
 workspace $ws10 output $internal_monitor
 
 # execution order of workspaces is reveresed, so that $ws1 and $ws2 are focused
-exec --no-startup-id i3-msg 'workspace $ws3; exec antigravity'
-exec --no-startup-id i3-msg 'workspace $ws2; exec firefox'
+#exec --no-startup-id i3-msg 'workspace $ws3; exec antigravity'
+exec --no-startup-id i3-msg 'workspace $ws2; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
 
 # workspace assignment should be done manually for goland, as it spwans new process for the main app
