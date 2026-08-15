@@ -1,2 +1,4 @@
 # Neovim usage
-* Navigation between Windows: `CTRL + W + ←↕→`
+
+* `CTRL + W + ←↕→`: Navigate between windows
+* `CTRL + T`: Toggle terminal
