@@ -12,9 +12,9 @@ return {
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
 
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Find Symbols" })
-    vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, { desc = "Goto Definition" })
-    vim.keymap.set("n", "<leader>fr", builtin.lsp_references, { desc = "Goto References" })
-    vim.keymap.set("n", "<leader>fi", builtin.lsp_definitions, { desc = "Goto Implementation" })
+    vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, { desc = "Goto Definition" })
+    vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = "Goto References" })
+    vim.keymap.set("n", "<leader>gi", builtin.lsp_definitions, { desc = "Goto Implementation" })
 
     vim.keymap.set("n", "<leader>/", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
