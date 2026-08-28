@@ -11,8 +11,11 @@ return {
     },
     opts = {
       ensure_installed = {
+        "bashls",
         "dockerls",
         "gopls",
+        "jsonls",
+        "yamlls",
         "just",
         "terraformls",
       },

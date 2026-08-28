@@ -34,5 +34,12 @@ return {
       end,
       { desc = "Toggle Neotree" }
     )
+    vim.keymap.set('n', '<leader>E',
+      function()
+        vim.cmd.Neotree('reveal')
+      end,
+      { desc = "Reveal in Neotree" }
+    )
+
   end,
 }
