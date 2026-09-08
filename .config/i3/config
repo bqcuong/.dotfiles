@@ -106,7 +106,9 @@ exec --no-startup-id i3-msg 'workspace $ws2; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace $ws1; exec gnome-terminal'
 
 # workspace assignment should be done manually for goland, as it spwans new process for the main app
+# useful command for inspecting the window class: xprop | grep WM_CLASS
 assign [class="jetbrains-goland"] $ws3
+assign [class="jetbrains-idea"] $ws3
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
